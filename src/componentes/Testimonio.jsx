@@ -1,19 +1,24 @@
 import React from "react";
 import "../hoja-de-estilo/Testimonio.css";
 
-function Testimonio(props) {
-  return (
-    <div className="contenedor-testimonio">
-      <img
-        className="imagen-testimonio"
-        src={require(`../imagenes/${props.imagen}.png`)}
-        alt="foto de testigo" />
-      <div className="contenedor-texto-testimonio">
-        <p className="nombre-testimonio">{props.nombre} en {props.pais}</p>
-        <p className="cargo-testimonio">{props.cargo} en {props.empresa}</p>
-        <p className="texto-testimonio">"{props.testimonio}"</p>
+class Testimonio extends React.Component{
+  render() {
+    return (
+      <div className="contenedor-testimonio">
+        <img
+          className="imagen-testimonio"
+          src={require(`../imagenes/${this.props.imagen}.png`)}
+          alt={"Foto de ${this.props.nombre}"} />
+        <div className="contenedor-texto-testimonio">
+          <p className="nombre-testimonio">{this.props.nombre} en {this.props.pais}</p>
+          <p className="cargo-testimonio">{this.props.cargo} en {this.props.empresa}</p>
+          <p className="texto-testimonio">"{this.props.testimonio}"</p>
+        </div>
       </div>
-    </div>
-  );
+    );
+
+  }
+
 }
+
 export default Testimonio;
